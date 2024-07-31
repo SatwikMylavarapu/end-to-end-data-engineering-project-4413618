@@ -1,0 +1,557 @@
+2024-07-31 20:56:32 [46mplatform[0m > Docker volume job log path: /tmp/workspace/40/0/logs.log
+2024-07-31 20:56:32 [46mplatform[0m > Executing worker wrapper. Airbyte version: 0.63.11
+2024-07-31 20:56:32 [46mplatform[0m > start sync worker. job id: 40 attempt id: 0
+2024-07-31 20:56:32 [46mplatform[0m > 
+2024-07-31 20:56:32 [46mplatform[0m > ----- START REPLICATION -----
+2024-07-31 20:56:32 [46mplatform[0m > 
+2024-07-31 20:56:32 [46mplatform[0m > Number of Resumed Full Refresh Streams: {0}
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_LIMIT: '2.0'
+2024-07-31 20:56:32 [46mplatform[0m > Running destination...
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_LIMIT: '2.0'
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_REQUEST: '0.1'
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_REQUEST: '0.1'
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_LIMIT: '2.0'
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_LIMIT: '2.0'
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SIDECAR_KUBE_CPU_REQUEST: '0.1'
+2024-07-31 20:56:32 [46mplatform[0m > Using default value for environment variable SOCAT_KUBE_CPU_REQUEST: '0.1'
+2024-07-31 20:56:32 [46mplatform[0m > Checking if airbyte/source-postgres:3.6.10 exists...
+2024-07-31 20:56:32 [46mplatform[0m > Checking if airbyte/destination-bigquery:2.8.5 exists...
+2024-07-31 20:56:32 [46mplatform[0m > airbyte/source-postgres:3.6.10 was found locally.
+2024-07-31 20:56:32 [46mplatform[0m > airbyte/destination-bigquery:2.8.5 was found locally.
+2024-07-31 20:56:32 [46mplatform[0m > Creating docker container = source-postgres-read-40-0-wrgoe with resources io.airbyte.config.ResourceRequirements@66185e5e[cpuRequest=1,cpuLimit=2,memoryRequest=1Gi,memoryLimit=2Gi,additionalProperties={}] and allowedHosts io.airbyte.config.AllowedHosts@30f66ccc[hosts=[localhost, *.datadoghq.com, *.datadoghq.eu, *.sentry.io],additionalProperties={}]
+2024-07-31 20:56:32 [46mplatform[0m > Creating docker container = destination-bigquery-write-40-0-ytedy with resources io.airbyte.config.ResourceRequirements@5cf6ded5[cpuRequest=1,cpuLimit=2,memoryRequest=1Gi,memoryLimit=2Gi,additionalProperties={}] and allowedHosts null
+2024-07-31 20:56:32 [46mplatform[0m > Preparing command: docker run --rm --init -i -w /data/40/0 --log-driver none --name source-postgres-read-40-0-wrgoe -e CONCURRENT_SOURCE_STREAM_READ=false --network host -v airbyte_workspace:/data -v oss_local_root:/local -e DEPLOYMENT_MODE=OSS -e WORKER_CONNECTOR_IMAGE=airbyte/source-postgres:3.6.10 -e AUTO_DETECT_SCHEMA=true -e LAUNCHDARKLY_KEY= -e SOCAT_KUBE_CPU_REQUEST=0.1 -e SOCAT_KUBE_CPU_LIMIT=2.0 -e FIELD_SELECTION_WORKSPACES= -e USE_STREAM_CAPABLE_STATE=true -e AIRBYTE_ROLE=dev -e WORKER_ENVIRONMENT=DOCKER -e APPLY_FIELD_SELECTION=false -e WORKER_JOB_ATTEMPT=0 -e OTEL_COLLECTOR_ENDPOINT=http://host.docker.internal:4317 -e FEATURE_FLAG_CLIENT=config -e AIRBYTE_VERSION=0.63.11 -e WORKER_JOB_ID=40 --cpus=2 --memory-reservation=1Gi --memory=2Gi airbyte/source-postgres:3.6.10 read --config source_config.json --catalog source_catalog.json --state input_state.json
+2024-07-31 20:56:32 [46mplatform[0m > Preparing command: docker run --rm --init -i -w /data/40/0 --log-driver none --name destination-bigquery-write-40-0-ytedy --network host -v airbyte_workspace:/data -v oss_local_root:/local -e DEPLOYMENT_MODE=OSS -e WORKER_CONNECTOR_IMAGE=airbyte/destination-bigquery:2.8.5 -e AUTO_DETECT_SCHEMA=true -e LAUNCHDARKLY_KEY= -e SOCAT_KUBE_CPU_REQUEST=0.1 -e SOCAT_KUBE_CPU_LIMIT=2.0 -e FIELD_SELECTION_WORKSPACES= -e USE_STREAM_CAPABLE_STATE=true -e AIRBYTE_ROLE=dev -e WORKER_ENVIRONMENT=DOCKER -e APPLY_FIELD_SELECTION=false -e WORKER_JOB_ATTEMPT=0 -e OTEL_COLLECTOR_ENDPOINT=http://host.docker.internal:4317 -e FEATURE_FLAG_CLIENT=config -e AIRBYTE_VERSION=0.63.11 -e WORKER_JOB_ID=40 --cpus=2 --memory-reservation=1Gi --memory=2Gi airbyte/destination-bigquery:2.8.5 write --config destination_config.json --catalog destination_catalog.json
+2024-07-31 20:56:32 [46mplatform[0m > Writing messages to protocol version 0.2.0
+2024-07-31 20:56:32 [46mplatform[0m > Reading messages from protocol version 0.2.0
+2024-07-31 20:56:32 [46mplatform[0m > Reading messages from protocol version 0.2.0
+2024-07-31 20:56:32 [46mplatform[0m > readFromSource: start
+2024-07-31 20:56:32 [46mplatform[0m > writeToDestination: start
+2024-07-31 20:56:32 [46mplatform[0m > Starting source heartbeat check. Will check threshold of 10800 seconds, every 1 minutes.
+2024-07-31 20:56:32 [46mplatform[0m > readFromDestination: start
+2024-07-31 20:56:32 [46mplatform[0m > processMessage: start
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(main):697 starting source: class io.airbyte.integrations.source.postgres.PostgresSource
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.c.i.b.IntegrationCliParser$Companion(parseOptions):144 integration args: {read=null, catalog=source_catalog.json, state=input_state.json, config=source_config.json}
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.c.i.b.IntegrationRunner(runInternal):130 Running integration: io.airbyte.cdk.integrations.base.ssh.SshWrappedSource
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.c.i.b.IntegrationRunner(runInternal):131 Command: READ
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.c.i.b.IntegrationRunner(runInternal):132 Integration config: IntegrationConfig{command=READ, configPath='source_config.json', catalogPath='source_catalog.json', statePath='input_state.json'}
+2024-07-31 20:56:35 [43mdestination[0m > INFO main i.a.i.d.b.BigQueryDestinationKt(main):385 Starting Destination : class io.airbyte.integrations.destination.bigquery.BigQueryDestination
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword groups - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword order - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword group - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword airbyte_secret - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword always_show - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword display_type - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword min - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword max - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.c.i.b.s.SshTunnel$Companion(getInstance):423 Starting connection with method: NO_TUNNEL
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(isCdc):70 using CDC: true
+2024-07-31 20:56:35 [44msource[0m > INFO main i.a.c.i.s.r.s.StateManagerFactory(createStateManager):51 Global state manager selected to manage state object with type GLOBAL.
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.c.i.s.r.CdcStateManager(<init>):30 Initialized CDC state
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(toSslJdbcParamInternal):923 DISABLED toSslJdbcParam disable
+2024-07-31 20:56:36 [43mdestination[0m > INFO main i.a.c.i.b.IntegrationCliParser$Companion(parseOptions):144 integration args: {catalog=destination_catalog.json, write=null, config=destination_config.json}
+2024-07-31 20:56:36 [43mdestination[0m > INFO main i.a.c.i.b.IntegrationRunner(runInternal):124 Running integration: io.airbyte.integrations.destination.bigquery.BigQueryDestination
+2024-07-31 20:56:36 [43mdestination[0m > INFO main i.a.c.i.b.IntegrationRunner(runInternal):125 Command: WRITE
+2024-07-31 20:56:36 [44msource[0m > INFO main c.z.h.HikariDataSource(<init>):79 HikariPool-1 - Starting...
+2024-07-31 20:56:36 [43mdestination[0m > INFO main i.a.c.i.b.IntegrationRunner(runInternal):126 Integration config: IntegrationConfig{command=WRITE, configPath='destination_config.json', catalogPath='destination_catalog.json', statePath='null'}
+2024-07-31 20:56:36 [44msource[0m > INFO main c.z.h.HikariDataSource(<init>):81 HikariPool-1 - Start completed.
+2024-07-31 20:56:36 [43mdestination[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword groups - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:36 [43mdestination[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword group - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:36 [43mdestination[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword order - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:36 [43mdestination[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword display_type - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:36 [43mdestination[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword airbyte_secret - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:36 [43mdestination[0m > WARN main c.n.s.JsonMetaSchema(newValidator):278 Unknown keyword always_show - you should define your own Meta Schema. If the keyword is irrelevant for validation, just use a NonValidationKeyword
+2024-07-31 20:56:36 [43mdestination[0m > INFO main i.a.i.d.b.BigQueryUtils(getLoadingMethod):233 Selected loading method is set to: STANDARD
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(isCdc):70 using CDC: true
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.c.d.j.s.AdaptiveStreamingQueryConfig(initialize):24 Set initial fetch size: 10 rows
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresCatalogHelper(getPublicizedTables):156 For CDC, only tables in publication airbyte_publication will be included in the sync: [public.products, public.order_items, public.customers, public.orders]
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.c.i.s.j.AbstractJdbcSource(logPreSyncDebugData):780 Data source product recognized as PostgreSQL:15.3
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):284 Discovering indexes for schema "public", table "order_items"
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):286 Index name: order_items_pkey, Column: order_item_id, Unique: true
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):284 Discovering indexes for schema "public", table "products"
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):286 Index name: products_pkey, Column: product_id, Unique: true
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):284 Discovering indexes for schema "public", table "customers"
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):286 Index name: customers_pkey, Column: customer_id, Unique: true
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):284 Discovering indexes for schema "public", table "orders"
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(logPreSyncDebugData):286 Index name: orders_pkey, Column: order_id, Unique: true
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.c.i.s.j.AbstractJdbcSource(discoverInternal):369 Internal schemas to exclude: [catalog_history, information_schema, pg_catalog, pg_internal]
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.c.d.j.s.AdaptiveStreamingQueryConfig(initialize):24 Set initial fetch size: 10 rows
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(isCdc):70 using CDC: true
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(lambda$getReplicationSlot$4):425 Attempting to find the named replication slot using the query: HikariProxyPreparedStatement@489047267 wrapping SELECT * FROM pg_replication_slots WHERE slot_name = ('airbyte_slot') AND plugin = ('pgoutput') AND database = ('big-star-db')
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.c.d.j.s.AdaptiveStreamingQueryConfig(initialize):24 Set initial fetch size: 10 rows
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(format):240 Initial Debezium state constructed: {"[\"big-star-db\",{\"server\":\"big-star-db\"}]":"{\"transaction_id\":null,\"lsn\":39209400,\"txId\":785,\"ts_usec\":1722459396694290}"}
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(shouldFlushAfterSync):78 Should flush after sync: true
+2024-07-31 20:56:36 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(toSslJdbcParamInternal):923 DISABLED toSslJdbcParam disable
+2024-07-31 20:56:36 [43mdestination[0m > INFO main i.a.i.b.d.t.CatalogParser(parseCatalog):132 Running sync with stream configs: [StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=order_items, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_order_items, originalNamespace=raw_data, originalName=order_items), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=order_item_id, originalName=order_item_id, canonicalName=order_item_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=order_id, originalName=order_id, canonicalName=order_id)=INTEGER, ColumnId(name=product_id, originalName=product_id, canonicalName=product_id)=INTEGER, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=order_item_id, originalName=order_item_id, canonicalName=order_item_id)=INTEGER, ColumnId(name=product_price, originalName=product_price, canonicalName=product_price)=NUMBER, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40), StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=products, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_products, originalNamespace=raw_data, originalName=products), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=product_id, originalName=product_id, canonicalName=product_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=name, originalName=name, canonicalName=name)=STRING, ColumnId(name=price, originalName=price, canonicalName=price)=NUMBER, ColumnId(name=rating, originalName=rating, canonicalName=rating)=NUMBER, ColumnId(name=category, originalName=category, canonicalName=category)=STRING, ColumnId(name=collection, originalName=collection, canonicalName=collection)=STRING, ColumnId(name=product_id, originalName=product_id, canonicalName=product_id)=INTEGER, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=availability, originalName=availability, canonicalName=availability)=BOOLEAN, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40), StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=customers, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_customers, originalNamespace=raw_data, originalName=customers), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=customer_id, originalName=customer_id, canonicalName=customer_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=city, originalName=city, canonicalName=city)=STRING, ColumnId(name=email, originalName=email, canonicalName=email)=STRING, ColumnId(name=gender, originalName=gender, canonicalName=gender)=STRING, ColumnId(name=country, originalName=country, canonicalName=country)=STRING, ColumnId(name=last_name, originalName=last_name, canonicalName=last_name)=STRING, ColumnId(name=first_name, originalName=first_name, canonicalName=first_name)=STRING, ColumnId(name=ip_address, originalName=ip_address, canonicalName=ip_address)=STRING, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=customer_id, originalName=customer_id, canonicalName=customer_id)=INTEGER, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40), StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=orders, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_orders, originalNamespace=raw_data, originalName=orders), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=order_id, originalName=order_id, canonicalName=order_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=status, originalName=status, canonicalName=status)=STRING, ColumnId(name=order_id, originalName=order_id, canonicalName=order_id)=INTEGER, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=customer_id, originalName=customer_id, canonicalName=customer_id)=INTEGER, ColumnId(name=order_approved_at, originalName=order_approved_at, canonicalName=order_approved_at)=TIMESTAMP_WITHOUT_TIMEZONE, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=order_delivered_at, originalName=order_delivered_at, canonicalName=order_delivered_at)=TIMESTAMP_WITHOUT_TIMEZONE, ColumnId(name=order_purchased_at, originalName=order_purchased_at, canonicalName=order_purchased_at)=TIMESTAMP_WITHOUT_TIMEZONE, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40)]
+2024-07-31 20:56:36 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:36 [43mdestination[0m > INFO main i.a.i.b.d.o.DefaultSyncOperation(createPerStreamOpClients):52 Preparing required schemas and tables for all streams
+2024-07-31 20:56:36 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 StandaloneConfig values: 
+	access.control.allow.methods = 
+	access.control.allow.origin = 
+	admin.listeners = null
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	config.providers = []
+	connector.client.config.override.policy = All
+	header.converter = class org.apache.kafka.connect.storage.SimpleHeaderConverter
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	listeners = [http://:8083]
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	offset.flush.interval.ms = 1000
+	offset.flush.timeout.ms = 5000
+	offset.storage.file.filename = /tmp/cdc-state-offset16008247760783575876/offset.dat
+	plugin.discovery = hybrid_warn
+	plugin.path = null
+	response.http.headers.config = 
+	rest.advertised.host.name = null
+	rest.advertised.listener = null
+	rest.advertised.port = null
+	rest.extension.classes = []
+	ssl.cipher.suites = null
+	ssl.client.auth = none
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	task.shutdown.graceful.timeout.ms = 5000
+	topic.creation.enable = true
+	topic.tracking.allow.reset = true
+	topic.tracking.enable = true
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+
+2024-07-31 20:56:36 [44msource[0m > INFO main o.a.k.c.s.FileOffsetBackingStore(start):63 Starting FileOffsetBackingStore with file /tmp/cdc-state-offset16008247760783575876/offset.dat
+2024-07-31 20:56:36 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:36 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:36 [44msource[0m > INFO main i.d.c.CommonConnectorConfig(getSourceInfoStructMaker):1649 Loading the custom source info struct maker plugin: io.debezium.connector.postgresql.PostgresSourceInfoStructMaker
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(extractLsn):191 Found previous partition offset PostgresPartition [sourcePartition={server=big-star-db}]: {lsn=39208584, txId=780, ts_usec=1722394767453834}
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(parseSavedOffset):171 Closing offsetStorageReader and fileOffsetBackingStore
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.s.FileOffsetBackingStore(stop):71 Stopped FileOffsetBackingStore
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(isSavedOffsetAfterReplicationSlotLSN):69 Replication slot confirmed_flush_lsn : 39208584 Saved offset LSN : 39208584
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcCtidInitializer(getCtidInitialLoadGlobalStateManager):117 Streams to be synced via ctid (can include RFR streams) : 0
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcCtidInitializer(getCtidInitialLoadGlobalStateManager):118 Streams: 
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(format):240 Initial Debezium state constructed: {"[\"big-star-db\",{\"server\":\"big-star-db\"}]":"{\"transaction_id\":null,\"lsn\":39209448,\"txId\":786,\"ts_usec\":1722459397040790}"}
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(isCdc):70 using CDC: true
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(getIncrementalIterators):507 Using ctid + CDC
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(getFirstRecordWaitTime):171 First record waiting time: 1200 seconds
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.c.i.s.r.InitialLoadTimeoutUtil(getInitialLoadTimeout):44 Initial Load timeout: 28800 seconds
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcCtidInitializer(cdcCtidIteratorsCombined):149 First record waiting time: 1200 seconds
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcCtidInitializer(cdcCtidIteratorsCombined):150 Initial load timeout: 8 hours
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcCtidInitializer(cdcCtidIteratorsCombined):151 Queue size: 10000
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(format):240 Initial Debezium state constructed: {"[\"big-star-db\",{\"server\":\"big-star-db\"}]":"{\"transaction_id\":null,\"lsn\":39209448,\"txId\":787,\"ts_usec\":1722459397053012}"}
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(shouldFlushAfterSync):78 Should flush after sync: true
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(toSslJdbcParamInternal):923 DISABLED toSslJdbcParam disable
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 StandaloneConfig values: 
+	access.control.allow.methods = 
+	access.control.allow.origin = 
+	admin.listeners = null
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	config.providers = []
+	connector.client.config.override.policy = All
+	header.converter = class org.apache.kafka.connect.storage.SimpleHeaderConverter
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	listeners = [http://:8083]
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	offset.flush.interval.ms = 1000
+	offset.flush.timeout.ms = 5000
+	offset.storage.file.filename = /tmp/cdc-state-offset7931115786353756972/offset.dat
+	plugin.discovery = hybrid_warn
+	plugin.path = null
+	response.http.headers.config = 
+	rest.advertised.host.name = null
+	rest.advertised.listener = null
+	rest.advertised.port = null
+	rest.extension.classes = []
+	ssl.cipher.suites = null
+	ssl.client.auth = none
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	task.shutdown.graceful.timeout.ms = 5000
+	topic.creation.enable = true
+	topic.tracking.allow.reset = true
+	topic.tracking.enable = true
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.s.FileOffsetBackingStore(start):63 Starting FileOffsetBackingStore with file /tmp/cdc-state-offset7931115786353756972/offset.dat
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > INFO main i.d.c.CommonConnectorConfig(getSourceInfoStructMaker):1649 Loading the custom source info struct maker plugin: io.debezium.connector.postgresql.PostgresSourceInfoStructMaker
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(extractLsn):191 Found previous partition offset PostgresPartition [sourcePartition={server=big-star-db}]: {lsn=39208584, txId=780, ts_usec=1722394767453834}
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(parseSavedOffset):171 Closing offsetStorageReader and fileOffsetBackingStore
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.s.FileOffsetBackingStore(stop):71 Stopped FileOffsetBackingStore
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(shouldFlushAfterSync):78 Should flush after sync: true
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresDebeziumStateUtil(commitLSNToPostgresDatabase):104 Committing upto LSN: 39208584
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresReplicationConnection(createConnection):44 Creating a replication connection.
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresReplicationConnection(createConnection):47 Validating replication connection.
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcCtidInitializer(cdcCtidIteratorsCombined):249 No streams will be synced via ctid
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcTargetPosition(targetPosition):52 identified target lsn: PgLsn{lsn=39209544}
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.c.PostgresCdcCtidInitializer(cdcCtidIteratorsCombined):315 Initial load has finished completely - only reading the WAL
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresUtils(shouldFlushAfterSync):78 Should flush after sync: true
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.i.s.p.PostgresSource(toSslJdbcParamInternal):923 DISABLED toSslJdbcParam disable
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.c.i.d.AirbyteDebeziumHandler(getIncrementalIterators):77 Using CDC: true
+2024-07-31 20:56:37 [44msource[0m > INFO main i.a.c.i.d.AirbyteDebeziumHandler(getIncrementalIterators):78 Using DBZ version: 2.6.2.Final
+2024-07-31 20:56:37 [44msource[0m > WARN main i.d.e.DebeziumEngine(determineBuilderFactory):346 More than one Debezium engine builder implementation was found, using class io.debezium.embedded.ConvertingEngineBuilderFactory (in Debezium 2.6 you can ignore this warning)
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 EmbeddedWorkerConfig values: 
+	access.control.allow.methods = 
+	access.control.allow.origin = 
+	admin.listeners = null
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	config.providers = []
+	connector.client.config.override.policy = All
+	header.converter = class org.apache.kafka.connect.storage.SimpleHeaderConverter
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	listeners = [http://:8083]
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	offset.flush.interval.ms = 1000
+	offset.flush.timeout.ms = 5000
+	offset.storage.file.filename = /tmp/cdc-state-offset2844617561823638989/offset.dat
+	offset.storage.partitions = null
+	offset.storage.replication.factor = null
+	offset.storage.topic = 
+	plugin.discovery = hybrid_warn
+	plugin.path = null
+	response.http.headers.config = 
+	rest.advertised.host.name = null
+	rest.advertised.listener = null
+	rest.advertised.port = null
+	rest.extension.classes = []
+	ssl.cipher.suites = null
+	ssl.client.auth = none
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	task.shutdown.graceful.timeout.ms = 5000
+	topic.creation.enable = true
+	topic.tracking.allow.reset = true
+	topic.tracking.enable = true
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > INFO main o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = false
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > WARN pool-2-thread-1 i.d.c.p.PostgresConnectorConfig(validateFlushLsnSource):1205 Property 'flush.lsn.source' is set to 'false', the LSN will not be flushed to the database source and WAL logs will not be cleared. User is expected to handle this outside Debezium.
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.CommonConnectorConfig(getSourceInfoStructMaker):1649 Loading the custom source info struct maker plugin: io.debezium.connector.postgresql.PostgresSourceInfoStructMaker
+2024-07-31 20:56:37 [46mplatform[0m > Stream status TRACE received of status: STARTED for stream public:order_items
+2024-07-31 20:56:37 [46mplatform[0m > Sending update for public:order_items - null -> RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Stream Status Update Received: public:order_items - RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Creating status: public:order_items - RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Stream status TRACE received of status: STARTED for stream public:products
+2024-07-31 20:56:37 [46mplatform[0m > Sending update for public:products - null -> RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Stream Status Update Received: public:products - RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Creating status: public:products - RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Stream status TRACE received of status: STARTED for stream public:customers
+2024-07-31 20:56:37 [46mplatform[0m > Sending update for public:customers - null -> RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Stream Status Update Received: public:customers - RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Creating status: public:customers - RUNNING
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.p.PostgresConnector(testConnection):147 Successfully tested connection for jdbc:postgresql://localhost:5432/big-star-db with user 'postgres'
+2024-07-31 20:56:37 [46mplatform[0m > Stream status TRACE received of status: STARTED for stream public:orders
+2024-07-31 20:56:37 [46mplatform[0m > Sending update for public:orders - null -> RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Stream Status Update Received: public:orders - RUNNING
+2024-07-31 20:56:37 [46mplatform[0m > Creating status: public:orders - RUNNING
+2024-07-31 20:56:37 [44msource[0m > INFO pool-3-thread-1 i.d.j.JdbcConnection(lambda$doClose$4):952 Connection gracefully closed
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 o.a.k.c.c.AbstractConfig(logAll):370 JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 o.a.k.c.s.FileOffsetBackingStore(start):63 Starting FileOffsetBackingStore with file /tmp/cdc-state-offset2844617561823638989/offset.dat
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.i.DebeziumRecordPublisher$start$3(connectorStarted):79 DebeziumEngine notify: connector started
+2024-07-31 20:56:37 [44msource[0m > WARN pool-2-thread-1 i.d.c.p.PostgresConnectorConfig(validateFlushLsnSource):1205 Property 'flush.lsn.source' is set to 'false', the LSN will not be flushed to the database source and WAL logs will not be cleared. User is expected to handle this outside Debezium.
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(start):242 Starting PostgresConnectorTask with configuration:
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    connector.class = io.debezium.connector.postgresql.PostgresConnector
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    max.queue.size = 8192
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    slot.name = airbyte_slot
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    publication.name = airbyte_publication
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    value.converter.replace.null.with.default = false
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    database.sslmode = disable
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    topic.prefix = big-star-db
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    offset.storage.file.filename = /tmp/cdc-state-offset2844617561823638989/offset.dat
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    decimal.handling.mode = string
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    flush.lsn.source = false
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    converters = datetime
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    errors.retry.delay.initial.ms = 299
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    datetime.type = io.airbyte.integrations.source.postgres.cdc.PostgresConverter
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    value.converter = org.apache.kafka.connect.json.JsonConverter
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    key.converter = org.apache.kafka.connect.json.JsonConverter
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    publication.autocreate.mode = disabled
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    database.user = postgres
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    database.dbname = big-star-db
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    offset.storage = org.apache.kafka.connect.storage.FileOffsetBackingStore
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    max.queue.size.in.bytes = 268435456
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    errors.retry.delay.max.ms = 300
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    offset.flush.timeout.ms = 5000
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    heartbeat.interval.ms = 10000
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    column.include.list = \Qpublic.order_items\E\.(\Qorder_id\E|\Qproduct_id\E|\Q_ab_cdc_lsn\E|\Qorder_item_id\E|\Qproduct_price\E|\Q_ab_cdc_deleted_at\E|\Q_ab_cdc_updated_at\E|\Qupdated_normalized_at\E),\Qpublic.products\E\.(\Qname\E|\Qprice\E|\Qrating\E|\Qcategory\E|\Qcollection\E|\Qproduct_id\E|\Q_ab_cdc_lsn\E|\Qavailability\E|\Q_ab_cdc_deleted_at\E|\Q_ab_cdc_updated_at\E|\Qupdated_normalized_at\E),\Qpublic.customers\E\.(\Qcity\E|\Qemail\E|\Qgender\E|\Qcountry\E|\Qlast_name\E|\Qfirst_name\E|\Qip_address\E|\Q_ab_cdc_lsn\E|\Qcustomer_id\E|\Q_ab_cdc_deleted_at\E|\Q_ab_cdc_updated_at\E|\Qupdated_normalized_at\E),\Qpublic.orders\E\.(\Qstatus\E|\Qorder_id\E|\Q_ab_cdc_lsn\E|\Qcustomer_id\E|\Qorder_approved_at\E|\Q_ab_cdc_deleted_at\E|\Q_ab_cdc_updated_at\E|\Qorder_delivered_at\E|\Qorder_purchased_at\E|\Qupdated_normalized_at\E)
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    plugin.name = pgoutput
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    database.port = 5432
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    offset.flush.interval.ms = 1000
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    key.converter.schemas.enable = false
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    include.unknown.datatypes = true
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    errors.max.retries = 0
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    database.hostname = localhost
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    database.password = ********
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    value.converter.schemas.enable = false
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    name = big-star-db
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    max.batch.size = 2048
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    table.include.list = \Qpublic.order_items\E,\Qpublic.products\E,\Qpublic.customers\E,\Qpublic.orders\E
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(lambda$start$0):244    snapshot.mode = initial
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.CommonConnectorConfig(getSourceInfoStructMaker):1649 Loading the custom source info struct maker plugin: io.debezium.connector.postgresql.PostgresSourceInfoStructMaker
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.CommonConnectorConfig(getTopicNamingStrategy):1357 Loading the custom topic naming strategy plugin: io.debezium.schema.SchemaTopicNamingStrategy
+2024-07-31 20:56:37 [44msource[0m > INFO pool-4-thread-1 i.d.j.JdbcConnection(lambda$doClose$4):952 Connection gracefully closed
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(getPreviousOffsets):501 Found previous partition offset PostgresPartition [sourcePartition={server=big-star-db}]: {lsn=39208584, txId=780, ts_usec=1722394767453834}
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.p.c.PostgresConnection(readReplicationSlotInfo):337 Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=LSN{0/2564688}, catalogXmin=779]
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.p.PostgresConnectorTask(start):156 user 'postgres' connected to database 'big-star-db' on PostgreSQL 15.3 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 12.2.1_git20220924-r10) 12.2.1 20220924, 64-bit with roles:
+	role 'pg_read_all_settings' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_database_owner' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_stat_scan_tables' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_checkpoint' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_write_server_files' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_read_all_data' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_write_all_data' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_monitor' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_read_server_files' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_execute_server_program' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_read_all_stats' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_signal_backend' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'postgres' [superuser: true, replication: true, inherit: true, create role: true, create db: true, can log in: true]
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.p.c.PostgresConnection(readReplicationSlotInfo):337 Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=LSN{0/2564688}, catalogXmin=779]
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.c.p.PostgresConnectorTask(start):168 Found previous offset PostgresOffsetContext [sourceInfoSchema=Schema{io.debezium.connector.postgresql.Source:STRUCT}, sourceInfo=source_info[server='big-star-db'db='big-star-db', lsn=LSN{0/2564688}, txId=780, timestamp=2024-07-31T02:59:27.453834Z, snapshot=FALSE, schema=, table=], lastSnapshotRecord=false, lastCompletelyProcessedLsn=null, lastCommitLsn=null, streamingStoppingLsn=null, transactionContext=TransactionContext [currentTransactionId=null, perTableEventCount={}, totalEventCount=0], incrementalSnapshotContext=IncrementalSnapshotContext [windowOpened=false, chunkEndPosition=null, dataCollectionsToSnapshot=[], lastEventKeySent=null, maximumKey=null]]
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.u.Threads(threadFactory):271 Requested thread factory for connector PostgresConnector, id = big-star-db named = SignalProcessor
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.u.Threads(threadFactory):271 Requested thread factory for connector PostgresConnector, id = big-star-db named = change-event-source-coordinator
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.u.Threads(threadFactory):271 Requested thread factory for connector PostgresConnector, id = big-star-db named = blocking-snapshot
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.d.u.Threads$3(newThread):288 Creating thread debezium-postgresconnector-big-star-db-change-event-source-coordinator
+2024-07-31 20:56:37 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.i.DebeziumRecordPublisher$start$3(taskStarted):87 DebeziumEngine notify: task started
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.p.ChangeEventSourceCoordinator(lambda$start$0):134 Metrics registered
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.p.ChangeEventSourceCoordinator(lambda$start$0):137 Context created
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSnapshotChangeEventSource(getSnapshottingTask):77 A previous offset indicating a completed snapshot has been found.
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSnapshotChangeEventSource(getSnapshottingTask):85 According to the connector configuration no snapshot will be executed
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.p.ChangeEventSourceCoordinator(doSnapshot):254 Snapshot ended with SnapshotResult [status=SKIPPED, offset=PostgresOffsetContext [sourceInfoSchema=Schema{io.debezium.connector.postgresql.Source:STRUCT}, sourceInfo=source_info[server='big-star-db'db='big-star-db', lsn=LSN{0/2564688}, txId=780, timestamp=2024-07-31T02:59:27.453834Z, snapshot=FALSE, schema=, table=], lastSnapshotRecord=false, lastCompletelyProcessedLsn=null, lastCommitLsn=null, streamingStoppingLsn=null, transactionContext=TransactionContext [currentTransactionId=null, perTableEventCount={}, totalEventCount=0], incrementalSnapshotContext=IncrementalSnapshotContext [windowOpened=false, chunkEndPosition=null, dataCollectionsToSnapshot=[], lastEventKeySent=null, maximumKey=null]]]
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.p.ChangeEventSourceCoordinator(streamingConnected):433 Connected metrics set to 'true'
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.orders' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.customers' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.order_items' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.products' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.p.s.SignalProcessor(start):105 SignalProcessor started. Scheduling it every 5000ms
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.u.Threads$3(newThread):288 Creating thread debezium-postgresconnector-big-star-db-SignalProcessor
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.p.ChangeEventSourceCoordinator(streamEvents):279 Starting streaming
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresStreamingChangeEventSource(execute):137 Retrieved latest position from stored offset 'LSN{0/2564688}'
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.c.WalPositionLocator(<init>):48 Looking for WAL restart position for last commit LSN 'null' and last change LSN 'LSN{0/2564688}'
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.c.PostgresReplicationConnection(initPublication):150 Initializing PgOutput logical decoder publication
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.c.PostgresConnection(readReplicationSlotInfo):337 Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=LSN{0/2564688}, catalogXmin=779]
+2024-07-31 20:56:37 [44msource[0m > INFO pool-5-thread-1 i.d.j.JdbcConnection(lambda$doClose$4):952 Connection gracefully closed
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.u.Threads(threadFactory):271 Requested thread factory for connector PostgresConnector, id = big-star-db named = keep-alive
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.u.Threads$3(newThread):288 Creating thread debezium-postgresconnector-big-star-db-keep-alive
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.orders' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.customers' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.order_items' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresSchema(printReplicaIdentityInfo):100 REPLICA IDENTITY for 'public.products' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-07-31 20:56:37 [44msource[0m > INFO debezium-postgresconnector-big-star-db-change-event-source-coordinator i.d.c.p.PostgresStreamingChangeEventSource(processMessages):212 Processing messages
+2024-07-31 20:56:40 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:42 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:44 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:46 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-2 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigQueryDV2Migration migration for stream raw_data.products.
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-3 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigQueryDV2Migration migration for stream raw_data.customers.
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigQueryDV2Migration migration for stream raw_data.order_items.
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-1 i.a.i.d.b.m.BigQueryDV2Migration(migrateIfNecessary):27 Initializing DV2 Migration check
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigQueryDV2Migration migration for stream raw_data.orders.
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-4 i.a.i.d.b.m.BigQueryDV2Migration(migrateIfNecessary):27 Initializing DV2 Migration check
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-3 i.a.i.d.b.m.BigQueryDV2Migration(migrateIfNecessary):27 Initializing DV2 Migration check
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-2 i.a.i.d.b.m.BigQueryDV2Migration(migrateIfNecessary):27 Initializing DV2 Migration check
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):20 Assessing whether migration is necessary for stream order_items
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):20 Assessing whether migration is necessary for stream orders
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-3 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):20 Assessing whether migration is necessary for stream customers
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):44 Checking whether v1 raw table _airbyte_raw_orders in dataset raw_data exists
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-3 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):44 Checking whether v1 raw table _airbyte_raw_customers in dataset raw_data exists
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-2 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):20 Assessing whether migration is necessary for stream products
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-2 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):44 Checking whether v1 raw table _airbyte_raw_products in dataset raw_data exists
+2024-07-31 20:56:47 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):44 Checking whether v1 raw table _airbyte_raw_order_items in dataset raw_data exists
+2024-07-31 20:56:48 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(logStatistics):323 1 records sent during previous 00:00:10.849, last recorded offset of {server=big-star-db} partition is {lsn=39208584, txId=780, ts_usec=1722394767453834}
+2024-07-31 20:56:48 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.AirbyteDebeziumHandler$CapacityReportingBlockingQueue(reportQueueUtilization):48 CDC events queue stats: size=0, cap=10000, puts=1, polls=0
+2024-07-31 20:56:48 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):87 CDC events queue poll(): blocked for PT11.00356913S in its first call.
+2024-07-31 20:56:48 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):140 CDC events queue poll(): returned a heartbeat event: progressing to 39208584.
+2024-07-31 20:56:48 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):52 Migration Info: Required for Sync mode: true, No existing v2 raw tables: false, A v1 raw table exists: false
+2024-07-31 20:56:48 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):31 No Migration Required for stream: order_items
+2024-07-31 20:56:48 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):52 Migration Info: Required for Sync mode: true, No existing v2 raw tables: false, A v1 raw table exists: false
+2024-07-31 20:56:48 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):31 No Migration Required for stream: orders
+2024-07-31 20:56:48 [43mdestination[0m > INFO sync-operations-2 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):52 Migration Info: Required for Sync mode: true, No existing v2 raw tables: false, A v1 raw table exists: false
+2024-07-31 20:56:48 [43mdestination[0m > INFO sync-operations-2 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):31 No Migration Required for stream: products
+2024-07-31 20:56:49 [43mdestination[0m > INFO sync-operations-3 i.a.i.b.d.t.BaseDestinationV1V2Migrator(shouldMigrate):52 Migration Info: Required for Sync mode: true, No existing v2 raw tables: false, A v1 raw table exists: false
+2024-07-31 20:56:49 [43mdestination[0m > INFO sync-operations-3 i.a.i.b.d.t.BaseDestinationV1V2Migrator(migrateIfNecessary):31 No Migration Required for stream: customers
+2024-07-31 20:56:49 [43mdestination[0m > INFO main i.a.i.b.d.t.TyperDeduperUtil(executeRawTableMigrations):66 Refetching initial state for streams: [StreamId(finalNamespace=raw_data, finalName=order_items, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_order_items, originalNamespace=raw_data, originalName=order_items), StreamId(finalNamespace=raw_data, finalName=products, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_products, originalNamespace=raw_data, originalName=products), StreamId(finalNamespace=raw_data, finalName=customers, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_customers, originalNamespace=raw_data, originalName=customers), StreamId(finalNamespace=raw_data, finalName=orders, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_orders, originalNamespace=raw_data, originalName=orders)]
+2024-07-31 20:56:50 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:52 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:54 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:56 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(existingSchemaMatchesStreamConfig):263 Alter Table Report [] [] []; Clustering true; Partitioning true
+2024-07-31 20:56:56 [43mdestination[0m > INFO main i.a.i.b.d.t.TyperDeduperUtil(executeRawTableMigrations):73 Updated states: [DestinationInitialStatus(streamConfig=StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=order_items, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_order_items, originalNamespace=raw_data, originalName=order_items), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=order_item_id, originalName=order_item_id, canonicalName=order_item_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=order_id, originalName=order_id, canonicalName=order_id)=INTEGER, ColumnId(name=product_id, originalName=product_id, canonicalName=product_id)=INTEGER, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=order_item_id, originalName=order_item_id, canonicalName=order_item_id)=INTEGER, ColumnId(name=product_price, originalName=product_price, canonicalName=product_price)=NUMBER, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40), isFinalTablePresent=true, initialRawTableStatus=InitialRawTableStatus(rawTableExists=true, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional[2024-07-31T02:59:26.712Z]), initialTempRawTableStatus=InitialRawTableStatus(rawTableExists=false, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional.empty), isSchemaMismatch=false, isFinalTableEmpty=false, destinationState=BigQueryDestinationState(needsSoftReset=false)), DestinationInitialStatus(streamConfig=StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=products, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_products, originalNamespace=raw_data, originalName=products), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=product_id, originalName=product_id, canonicalName=product_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=name, originalName=name, canonicalName=name)=STRING, ColumnId(name=price, originalName=price, canonicalName=price)=NUMBER, ColumnId(name=rating, originalName=rating, canonicalName=rating)=NUMBER, ColumnId(name=category, originalName=category, canonicalName=category)=STRING, ColumnId(name=collection, originalName=collection, canonicalName=collection)=STRING, ColumnId(name=product_id, originalName=product_id, canonicalName=product_id)=INTEGER, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=availability, originalName=availability, canonicalName=availability)=BOOLEAN, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40), isFinalTablePresent=true, initialRawTableStatus=InitialRawTableStatus(rawTableExists=true, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional[2024-07-31T02:59:26.712Z]), initialTempRawTableStatus=InitialRawTableStatus(rawTableExists=false, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional.empty), isSchemaMismatch=false, isFinalTableEmpty=false, destinationState=BigQueryDestinationState(needsSoftReset=false)), DestinationInitialStatus(streamConfig=StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=customers, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_customers, originalNamespace=raw_data, originalName=customers), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=customer_id, originalName=customer_id, canonicalName=customer_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=city, originalName=city, canonicalName=city)=STRING, ColumnId(name=email, originalName=email, canonicalName=email)=STRING, ColumnId(name=gender, originalName=gender, canonicalName=gender)=STRING, ColumnId(name=country, originalName=country, canonicalName=country)=STRING, ColumnId(name=last_name, originalName=last_name, canonicalName=last_name)=STRING, ColumnId(name=first_name, originalName=first_name, canonicalName=first_name)=STRING, ColumnId(name=ip_address, originalName=ip_address, canonicalName=ip_address)=STRING, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=customer_id, originalName=customer_id, canonicalName=customer_id)=INTEGER, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40), isFinalTablePresent=true, initialRawTableStatus=InitialRawTableStatus(rawTableExists=true, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional[2024-07-31T02:59:26.712Z]), initialTempRawTableStatus=InitialRawTableStatus(rawTableExists=false, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional.empty), isSchemaMismatch=false, isFinalTableEmpty=false, destinationState=BigQueryDestinationState(needsSoftReset=false)), DestinationInitialStatus(streamConfig=StreamConfig(id=StreamId(finalNamespace=raw_data, finalName=orders, rawNamespace=airbyte_internal, rawName=raw_data_raw__stream_orders, originalNamespace=raw_data, originalName=orders), destinationSyncMode=append_dedup, primaryKey=[ColumnId(name=order_id, originalName=order_id, canonicalName=order_id)], cursor=Optional[ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)], columns={ColumnId(name=status, originalName=status, canonicalName=status)=STRING, ColumnId(name=order_id, originalName=order_id, canonicalName=order_id)=INTEGER, ColumnId(name=_ab_cdc_lsn, originalName=_ab_cdc_lsn, canonicalName=_ab_cdc_lsn)=NUMBER, ColumnId(name=customer_id, originalName=customer_id, canonicalName=customer_id)=INTEGER, ColumnId(name=order_approved_at, originalName=order_approved_at, canonicalName=order_approved_at)=TIMESTAMP_WITHOUT_TIMEZONE, ColumnId(name=_ab_cdc_deleted_at, originalName=_ab_cdc_deleted_at, canonicalName=_ab_cdc_deleted_at)=STRING, ColumnId(name=_ab_cdc_updated_at, originalName=_ab_cdc_updated_at, canonicalName=_ab_cdc_updated_at)=STRING, ColumnId(name=order_delivered_at, originalName=order_delivered_at, canonicalName=order_delivered_at)=TIMESTAMP_WITHOUT_TIMEZONE, ColumnId(name=order_purchased_at, originalName=order_purchased_at, canonicalName=order_purchased_at)=TIMESTAMP_WITHOUT_TIMEZONE, ColumnId(name=updated_normalized_at, originalName=updated_normalized_at, canonicalName=updated_normalized_at)=TIMESTAMP_WITHOUT_TIMEZONE}, generationId=0, minimumGenerationId=0, syncId=40), isFinalTablePresent=true, initialRawTableStatus=InitialRawTableStatus(rawTableExists=true, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional[2024-07-31T02:59:26.712Z]), initialTempRawTableStatus=InitialRawTableStatus(rawTableExists=false, hasUnprocessedRecords=false, maxProcessedTimestamp=Optional.empty), isSchemaMismatch=false, isFinalTableEmpty=false, destinationState=BigQueryDestinationState(needsSoftReset=false))]
+2024-07-31 20:56:56 [43mdestination[0m > INFO sync-operations-6 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigqueryAirbyteMetaAndGenerationIdMigration migration for stream raw_data.products.
+2024-07-31 20:56:56 [43mdestination[0m > INFO sync-operations-5 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigqueryAirbyteMetaAndGenerationIdMigration migration for stream raw_data.order_items.
+2024-07-31 20:56:56 [43mdestination[0m > INFO sync-operations-7 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigqueryAirbyteMetaAndGenerationIdMigration migration for stream raw_data.customers.
+2024-07-31 20:56:56 [43mdestination[0m > INFO sync-operations-8 i.a.i.b.d.t.TyperDeduperUtil(runMigrationsAsync$lambda$12):165 Maybe executing BigqueryAirbyteMetaAndGenerationIdMigration migration for stream raw_data.orders.
+2024-07-31 20:56:57 [43mdestination[0m > INFO sync-operations-6 i.a.i.d.b.m.BigqueryAirbyteMetaAndGenerationIdMigration(migrateIfNecessary):43 Skipping airbyte_meta/generation_id migration for raw_data.products because the table already has the columns
+2024-07-31 20:56:57 [43mdestination[0m > INFO sync-operations-8 i.a.i.d.b.m.BigqueryAirbyteMetaAndGenerationIdMigration(migrateIfNecessary):43 Skipping airbyte_meta/generation_id migration for raw_data.orders because the table already has the columns
+2024-07-31 20:56:57 [43mdestination[0m > INFO sync-operations-5 i.a.i.d.b.m.BigqueryAirbyteMetaAndGenerationIdMigration(migrateIfNecessary):43 Skipping airbyte_meta/generation_id migration for raw_data.order_items because the table already has the columns
+2024-07-31 20:56:57 [43mdestination[0m > INFO sync-operations-7 i.a.i.d.b.m.BigqueryAirbyteMetaAndGenerationIdMigration(migrateIfNecessary):43 Skipping airbyte_meta/generation_id migration for raw_data.customers because the table already has the columns
+2024-07-31 20:56:57 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(createDataset):359 Creating dataset if not present airbyte_internal
+2024-07-31 20:56:58 [43mdestination[0m > INFO main i.a.i.d.b.t.BigQueryDestinationHandler(createDataset):359 Creating dataset if not present raw_data
+2024-07-31 20:56:58 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(logStatistics):323 1 records sent during previous 00:00:10.083, last recorded offset of {server=big-star-db} partition is {lsn=39208584, txId=780, ts_usec=1722394767453834}
+2024-07-31 20:56:58 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.AirbyteDebeziumHandler$CapacityReportingBlockingQueue(reportQueueUtilization):48 CDC events queue stats: size=0, cap=10000, puts=2, polls=0
+2024-07-31 20:56:58 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):87 CDC events queue poll(): blocked for PT10.04163938S after its previous call which was also logged.
+2024-07-31 20:56:58 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):140 CDC events queue poll(): returned a heartbeat event: no progress since last heartbeat.
+2024-07-31 20:56:58 [43mdestination[0m > INFO sync-operations-10 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):80 raw_data.products: non-truncate sync. Creating raw table if not exists.
+2024-07-31 20:56:58 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):80 raw_data.customers: non-truncate sync. Creating raw table if not exists.
+2024-07-31 20:56:58 [43mdestination[0m > INFO sync-operations-9 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):80 raw_data.order_items: non-truncate sync. Creating raw table if not exists.
+2024-07-31 20:56:58 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):80 raw_data.orders: non-truncate sync. Creating raw table if not exists.
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-9 i.a.i.d.b.BigQueryUtils(createPartitionedTableIfNotExists):131 Partitioned table ALREADY EXISTS: GenericData{classInfo=[datasetId, projectId, tableId], {datasetId=airbyte_internal, tableId=raw_data_raw__stream_order_items}}
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-9 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):126 raw_data.order_items: non-truncate sync and no temp raw table. Initial raw table status is null.
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-9 i.a.i.b.d.o.AbstractStreamOperation(prepareFinalTable):188 Final Table exists for stream order_items
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-4 i.a.i.d.b.BigQueryUtils(createPartitionedTableIfNotExists):131 Partitioned table ALREADY EXISTS: GenericData{classInfo=[datasetId, projectId, tableId], {datasetId=airbyte_internal, tableId=raw_data_raw__stream_orders}}
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):126 raw_data.orders: non-truncate sync and no temp raw table. Initial raw table status is null.
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-4 i.a.i.b.d.o.AbstractStreamOperation(prepareFinalTable):188 Final Table exists for stream orders
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-10 i.a.i.d.b.BigQueryUtils(createPartitionedTableIfNotExists):131 Partitioned table ALREADY EXISTS: GenericData{classInfo=[datasetId, projectId, tableId], {datasetId=airbyte_internal, tableId=raw_data_raw__stream_products}}
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-10 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):126 raw_data.products: non-truncate sync and no temp raw table. Initial raw table status is null.
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-10 i.a.i.b.d.o.AbstractStreamOperation(prepareFinalTable):188 Final Table exists for stream products
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-1 i.a.i.d.b.BigQueryUtils(createPartitionedTableIfNotExists):131 Partitioned table ALREADY EXISTS: GenericData{classInfo=[datasetId, projectId, tableId], {datasetId=airbyte_internal, tableId=raw_data_raw__stream_customers}}
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.o.AbstractStreamOperation(prepareStageForNormalSync):126 raw_data.customers: non-truncate sync and no temp raw table. Initial raw table status is null.
+2024-07-31 20:56:59 [43mdestination[0m > INFO sync-operations-1 i.a.i.b.d.o.AbstractStreamOperation(prepareFinalTable):188 Final Table exists for stream customers
+2024-07-31 20:56:59 [43mdestination[0m > INFO main i.a.c.i.d.a.b.BufferManager(<init>):48 Max 'memory' available for buffer allocation 768 MB
+2024-07-31 20:56:59 [43mdestination[0m > INFO main i.a.c.i.b.IntegrationRunner$Companion(consumeWriteStream$io_airbyte_airbyte_cdk_java_airbyte_cdk_airbyte_cdk_core):424 Starting buffered read of input stream
+2024-07-31 20:56:59 [43mdestination[0m > INFO main i.a.c.i.d.a.FlushWorkers(start):73 Start async buffer supervisor
+2024-07-31 20:56:59 [43mdestination[0m > INFO main i.a.c.i.d.a.AsyncStreamConsumer(start):89 class io.airbyte.cdk.integrations.destination.async.AsyncStreamConsumer started.
+2024-07-31 20:56:59 [43mdestination[0m > INFO pool-6-thread-1 i.a.c.i.d.a.FlushWorkers(printWorkerInfo):127 [ASYNC WORKER INFO] Pool queue size: 0, Active threads: 0
+2024-07-31 20:56:59 [43mdestination[0m > INFO pool-3-thread-1 i.a.c.i.d.a.b.BufferManager(printQueueInfo):94 [ASYNC QUEUE INFO] Global: max: 768 MB, allocated: 10 MB (10.0 MB), %% used: 0.013020833333333334 | State Manager memory usage: Allocated: 10 MB, Used: 0 bytes, percentage Used 0.0
+2024-07-31 20:57:08 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.AirbyteDebeziumHandler$CapacityReportingBlockingQueue(reportQueueUtilization):48 CDC events queue stats: size=0, cap=10000, puts=3, polls=0
+2024-07-31 20:57:08 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):87 CDC events queue poll(): blocked for PT10.046719449S after its previous call which was also logged.
+2024-07-31 20:57:08 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):140 CDC events queue poll(): returned a heartbeat event: no progress since last heartbeat.
+2024-07-31 20:57:18 [44msource[0m > INFO pool-2-thread-1 i.d.c.c.BaseSourceTask(logStatistics):323 2 records sent during previous 00:00:20.591, last recorded offset of {server=big-star-db} partition is {lsn=39208584, txId=780, ts_usec=1722394767453834}
+2024-07-31 20:57:18 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.AirbyteDebeziumHandler$CapacityReportingBlockingQueue(reportQueueUtilization):48 CDC events queue stats: size=0, cap=10000, puts=4, polls=0
+2024-07-31 20:57:18 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):87 CDC events queue poll(): blocked for PT10.54159838S after its previous call which was also logged.
+2024-07-31 20:57:18 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):140 CDC events queue poll(): returned a heartbeat event: no progress since last heartbeat.
+2024-07-31 20:57:29 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.AirbyteDebeziumHandler$CapacityReportingBlockingQueue(reportQueueUtilization):48 CDC events queue stats: size=0, cap=10000, puts=5, polls=0
+2024-07-31 20:57:29 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):87 CDC events queue poll(): blocked for PT10.095231254S after its previous call which was also logged.
+2024-07-31 20:57:29 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):140 CDC events queue poll(): returned a heartbeat event: no progress since last heartbeat.
+2024-07-31 20:57:39 [44msource[0m > INFO pool-2-thread-1 i.a.c.i.d.AirbyteDebeziumHandler$CapacityReportingBlockingQueue(reportQueueUtilization):48 CDC events queue stats: size=0, cap=10000, puts=6, polls=0
+2024-07-31 20:57:39 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):87 CDC events queue poll(): blocked for PT10.038699741S after its previous call which was also logged.
+2024-07-31 20:57:39 [44msource[0m > INFO main i.a.c.i.d.i.DebeziumRecordIterator(computeNext):140 CDC events queue poll(): returned a heartbeat event: no progress since last heartbeat.
